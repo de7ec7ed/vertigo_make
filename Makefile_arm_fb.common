@@ -11,9 +11,9 @@ ARGS := -std=c99 -fno-zero-initialized-in-bss \
 
 WRNS := -Wall
 
-AFLAGS := -marm -O0 -I $(INCLUDESDIR) -I $(INCDIR) -I $(SRCDIR) $(WRNS)
-CFLAGS := -marm -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
-LFLAGS := -O0 -m armelf_linux_eabi -T linker.ld
+AFLAGS := -march=armv7-a -marm -O0 -I $(INCLUDESDIR) -I $(INCDIR) -I $(SRCDIR) $(WRNS)
+CFLAGS := -march=armv7-a -marm -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
+LFLAGS := -march=armv7-a -O0 -m armelf_linux_eabi -T linker.ld
 OBJCOPYFLAGS := -S -I elf32-littlearm -O binary
 
 DEPS := $(HDRFILES) $(CURDIR)/Makefile
