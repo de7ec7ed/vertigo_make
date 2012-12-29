@@ -1,0 +1,18 @@
+LD := ld
+CC := gcc
+AR := ar
+NM := nm
+OBJDUMP := objdump
+OBJCOPY := objcopy
+
+ARGS := -std=c99 -fno-zero-initialized-in-bss \
+		-fno-stack-protector -ffreestanding -nostdlib -nostdinc \
+		-fomit-frame-pointer
+
+WRNS := -Wall
+AFLAGS := -O0 -I $(INCDIR) -I $(INCLUDESDIR) -I $(SRCDIR) $(WRNS)
+CFLAGS := -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
+
+DEPS := $(HDRFILES) Makefile
+
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(SRCFILES))
