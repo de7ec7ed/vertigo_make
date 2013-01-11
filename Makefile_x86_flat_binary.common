@@ -13,7 +13,7 @@ WRNS := -Wall
 
 AFLAGS := -O0 -I $(INCLUDESDIR) -I $(INCDIR) -I $(SRCDIR) $(WRNS)
 CFLAGS := -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
-LFLAGS := -O0 -m elf_x86_64 -T linker.ld
+LFLAGS := -O0 -T linker.ld
 OBJCOPYFLAGS := -I elf64-x86-64 -O binary
 
 DEPS := $(HDRFILES) $(CURDIR)/Makefile
