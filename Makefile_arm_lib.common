@@ -1,0 +1,18 @@
+LD := arm-linux-gnueabi-ld
+CC := arm-linux-gnueabi-gcc
+AR := arm-linux-gnueabi-ar
+NM := arm-linux-gnueabi-nm
+OBJDUMP := arm-linux-gnueabi-objdump
+OBJCOPY := arm-linux-gnueabi-objcopy
+
+ARGS := -std=c99 -fno-zero-initialized-in-bss \
+		-fno-stack-protector -ffreestanding -nostdlib -nostdinc \
+		-fomit-frame-pointer
+
+WRNS := -Wall
+AFLAGS := -marm -march=armv7-a -O0 -I $(INCDIR) -I $(INCLUDESDIR) -I $(SRCDIR) $(WRNS)
+CFLAGS := -marm -march=armv7-a -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
+
+DEPS := $(HDRFILES) Makefile
+
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(SRCFILES))

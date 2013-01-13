@@ -1,0 +1,20 @@
+ARCH := -arch armv7
+
+DEVROOT := /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer
+SYSROOT := -isysroot $(DEVROOT)/SDKs/iPhoneOS6.0.sdk
+SYSINC := -I /Library/iPhone/include
+IOSVER := -miphoneos-version-min=5.1
+CODESIGN_ALLOCATE := $(DEVROOT)/usr/bin/codesign_allocate
+
+CC := $(DEVROOT)/usr/bin/gcc
+AR := $(DEVROOT)/usr/bin/ar
+RANLIB := $(DEVROOT)/usr/bin/ranlib
+NM := $(DEVROOT)/usr/bin/nm
+OBJDUMP := $(DEVROOT)/usr/bin/objdump
+
+CFLAGS := $(ARCH) -marm -std=c99 -Wall -O0 -I $(INCDIR) -I $(INCLUDESDIR) $(SYSINC) $(IOSVER) $(SYSROOT)
+LDFLAGS := $(ARCH) -marm -std=c99 $(SYSROOT)
+
+DEPS := $(HDRFILES) $(CURDIR)/Makefile
+
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(SRCFILES))

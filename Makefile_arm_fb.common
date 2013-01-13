@@ -1,0 +1,21 @@
+LD := arm-linux-gnueabi-ld
+CC := arm-linux-gnueabi-gcc
+AR := arm-linux-gnueabi-ar
+NM := arm-linux-gnueabi-nm
+OBJDUMP := arm-linux-gnueabi-objdump
+OBJCOPY := arm-linux-gnueabi-objcopy
+
+ARGS := -std=c99 -fno-zero-initialized-in-bss \
+		-fno-stack-protector -ffreestanding -nostdlib -nostdinc \
+		-fomit-frame-pointer
+
+WRNS := -Wall
+
+AFLAGS := -march=armv7-a -marm -O0 -I $(INCLUDESDIR) -I $(INCDIR) -I $(SRCDIR) $(WRNS)
+CFLAGS := -march=armv7-a -marm -c -O0 $(ARGS) -I $(INCLUDESDIR) -I $(INCDIR) $(WRNS)
+LFLAGS := -march=armv7-a -O0 -m armelf_linux_eabi -T linker.ld
+OBJCOPYFLAGS := -S -I elf32-littlearm -O binary
+
+DEPS := $(HDRFILES) $(CURDIR)/Makefile
+
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(SRCFILES))
