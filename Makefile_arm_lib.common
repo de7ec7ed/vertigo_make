@@ -1,9 +1,9 @@
-LD := arm-linux-gnueabi-ld
-CC := arm-linux-gnueabi-gcc
-AR := arm-linux-gnueabi-ar
-NM := arm-linux-gnueabi-nm
-OBJDUMP := arm-linux-gnueabi-objdump
-OBJCOPY := arm-linux-gnueabi-objcopy
+LD := arm-linux-gnu-ld
+CC := arm-linux-gnu-gcc
+AR := arm-linux-gnu-ar
+NM := arm-linux-gnu-nm
+OBJDUMP := arm-linux-gnu-objdump
+OBJCOPY := arm-linux-gnu-objcopy
 
 ARGS := -std=c99 -fno-zero-initialized-in-bss \
 		-fno-stack-protector -ffreestanding -nostdlib -nostdinc \
