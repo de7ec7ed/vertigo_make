@@ -1,9 +1,9 @@
-LD := arm-linux-gnu-ld
-CC := arm-linux-gnu-gcc
-AR := arm-linux-gnu-ar
-NM := arm-linux-gnu-nm
-OBJDUMP := arm-linux-gnu-objdump
-OBJCOPY := arm-linux-gnu-objcopy
+LD := $(PREFIX)ld
+CC := $(PREFIX)gcc
+AR := $(PREFIX)ar
+NM := $(PREFIX)nm
+OBJDUMP := $(PREFIX)objdump
+OBJCOPY := $(PREFIX)objcopy
 
 ARGS := -std=c99 -fno-zero-initialized-in-bss \
 		-fno-stack-protector -ffreestanding -nostdlib -nostdinc \
