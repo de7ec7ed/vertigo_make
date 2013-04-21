@@ -1,5 +1,5 @@
 DEVROOT := /home/de7ec7ed/workspace/android-ndk
-TOOLCHAIN := $(DEVROOT)/toolchains/arm-linux-androideabi-4.6
+TOOLCHAIN := $(DEVROOT)/toolchains/arm-linux-androideabi-4.4.3
 PREBUILT := $(TOOLCHAIN)/prebuilt/linux-x86_64
 
 LDSCRIPTS := $(PREBUILT)/arm-linux-androideabi/lib/ldscripts
@@ -23,7 +23,7 @@ CFLAGS := -I $(INCDIR) -I $(SYSROOT)/usr/include -I $(INCLUDESDIR) $(WRNS)
 
 LDFLAGS := -Bdynamic -Wl,-T,$(LDSCRIPTS)/armelf_linux_eabi.x -Wl,-dynamic-linker,/system/bin/linker -Wl,--gc-sections -Wl,-z,nocopyreloc \
            -Wl,--no-undefined -Wl,-rpath-link=$(SYSROOT) -L$(SYSROOT)/usr/lib/ -nostdlib $(SYSROOT)/usr/lib/crtend_android.o \
-           $(SYSROOT)/usr/lib/crtbegin_dynamic.o $(PREBUILT)/lib/gcc/arm-linux-androideabi/4.6/libgcc.a -lc -lm -ldl
+           $(SYSROOT)/usr/lib/crtbegin_dynamic.o $(PREBUILT)/lib/gcc/arm-linux-androideabi/4.4.3/libgcc.a -lc -lm -ldl
 
 DEPS := $(HDRFILES) $(CURDIR)/Makefile
 
