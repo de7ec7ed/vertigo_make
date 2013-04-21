@@ -1,0 +1,25 @@
+DEVROOT := /home/de7ec7ed/workspace/chromium-os/chroot
+
+PEPPER := pepper_27
+TOOLCHAIN := $(DEVROOT)/usr/bin
+
+PREFIX := armv7a-cros-linux-gnueabi-
+
+LD := $(TOOLCHAIN)/$(PREFIX)ld
+CC := $(TOOLCHAIN)/$(PREFIX)gcc
+AR := $(TOOLCHAIN)/$(PREFIX)ar
+NM := $(TOOLCHAIN)/$(PREFIX)nm
+OBJDUMP := $(TOOLCHAIN)/$(PREFIX)objdump
+OBJCOPY := $(TOOLCHAIN)/$(PREFIX)objcopy
+
+ARGS := -std=c99
+
+WRNS := -Wall
+
+CFLAGS := -I $(INCDIR) -I $(INCLUDESDIR) $(WRNS)
+
+LDFLAGS := 
+
+DEPS := $(HDRFILES) $(CURDIR)/Makefile
+
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(SRCFILES))
