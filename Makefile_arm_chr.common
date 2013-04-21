@@ -1,7 +1,10 @@
-DEVROOT := /home/de7ec7ed/workspace/chromium-os/chroot
+# this makefile only works from inside of the chromium chroot environment
+# see the link below for how to setup the environement
+# http://dev.chromium.org/chromium-os/developer-guide#TOC-Building-Chromium-OS
 
-PEPPER := pepper_27
-TOOLCHAIN := $(DEVROOT)/usr/bin
+DEVROOT := /home/de7ec7ed/workspace/chromium-ndk/chroot
+
+TOOLCHAIN := /usr/bin
 
 PREFIX := armv7a-cros-linux-gnueabi-
 
