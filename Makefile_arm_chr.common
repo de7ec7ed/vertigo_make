@@ -19,9 +19,9 @@ ARGS := -std=c99
 
 WRNS := -Wall
 
-CFLAGS := -I $(INCDIR) -I $(INCLUDESDIR) $(WRNS)
+CFLAGS := -marm -I $(INCDIR) -I $(INCLUDESDIR) $(WRNS)
 
-LDFLAGS := 
+LDFLAGS := -marm
 
 DEPS := $(HDRFILES) $(CURDIR)/Makefile
 
